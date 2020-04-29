@@ -1,0 +1,19 @@
+mutation Register($input: UserRegisterInput!) {
+  register(input: $input) {
+    first_name
+    last_name
+    email
+  }
+}
+
+mutation Login($input: UserLoginInput!) {
+  login(input: $input) {
+    first_name
+    last_name
+    email
+  }
+}
+
+mutation Logout {
+  logout
+}
