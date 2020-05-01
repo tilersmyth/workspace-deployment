@@ -19,6 +19,7 @@ export class IsUserAlreadyExist implements ValidatorConstraintInterface {
     }
 
     const user = await this.userService.findOne({ where: { email } });
+
     return !user;
   }
 

@@ -69,10 +69,10 @@ export class UserService {
     try {
       const register = new UserEntity();
       Object.assign(register, input);
-      const error = await validate(register);
+      const errors = await validate(register);
 
-      if (error) {
-        throw error;
+      if (errors.length > 0) {
+        throw errors;
       }
 
       return this.repository.save(register);

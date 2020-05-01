@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
+    "test": "jest",
     "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
@@ -15,9 +16,11 @@
     "@apollo/react-components": "^4.0.0-beta.1",
     "@apollo/react-hoc": "^4.0.0-beta.1",
     "@apollo/react-ssr": "^4.0.0-beta.1",
+    "apollo-link-schema": "^1.2.5",
     "cookie": "^0.4.1",
     "formik": "^2.1.4",
     "graphql": "^15.0.0",
+    "graphql-tools": "^5.0.0",
     "isomorphic-unfetch": "3.0.0",
     "next": "latest",
     "react": "^16.12.0",
@@ -28,6 +31,7 @@
     "@graphql-codegen/typescript": "^1.13.3",
     "@graphql-codegen/typescript-operations": "^1.13.3",
     "@graphql-codegen/typescript-react-apollo": "^1.13.3",
+    "@testing-library/react": "^10.0.4",
     "@types/cookie": "^0.3.3",
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",

@@ -221,3 +221,36 @@ export function withMe<TProps, TChildProps = {}, TDataName extends string = 'dat
     });
 };
 export type MeQueryResult = ApolloReactCommon.QueryResult<MeQuery, MeQueryVariables>;
+
+export const typeDefs = gql`
+type UserEntity {
+  id: ID!
+  first_name: String!
+  last_name: String!
+  email: String!
+}
+
+type Query {
+  me: UserEntity
+  allUsers: [UserEntity!]!
+}
+
+type Mutation {
+  register(input: UserRegisterInput!): UserEntity!
+  login(input: UserLoginInput!): UserEntity!
+  logout: Boolean!
+}
+
+input UserRegisterInput {
+  first_name: String!
+  last_name: String!
+  email: String!
+  password: String!
+}
+
+input UserLoginInput {
+  email: String!
+  password: String!
+}
+
+`;

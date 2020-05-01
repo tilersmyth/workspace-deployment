@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Formik, Form } from "formik";
 import { useMutation } from "@apollo/client";
@@ -35,11 +36,13 @@ const LoginForm: React.FunctionComponent = () => {
                 query: MeDocument,
                 data: { me: data.login },
               });
+
               Router.push("/me");
             },
           });
         } catch (err) {
           const error = gqlValidationError(err);
+
           if (error) {
             setFormError(error.form);
           }
@@ -52,7 +55,9 @@ const LoginForm: React.FunctionComponent = () => {
         <TextField label="Password" name="password" type="password" />
         <br />
         {formError && <div style={{ color: "red" }}>{formError}</div>}
-        <button type="submit">Submit</button>
+        <button type="submit" data-testid="submit-button">
+          Submit
+        </button>
       </Form>
     </Formik>
   );

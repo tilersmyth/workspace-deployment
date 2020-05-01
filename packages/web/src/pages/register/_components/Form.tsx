@@ -1,3 +1,4 @@
+import React from "react";
 import { Form, Formik } from "formik";
 import { useMutation } from "@apollo/client";
 import Router from "next/router";
@@ -45,7 +46,9 @@ const RegisterForm: React.FunctionComponent = () => {
         <br />
         <TextField label="Password" name="password" type="password" />
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit" data-testid="submit-button">
+          Submit
+        </button>
       </Form>
     </Formik>
   );
