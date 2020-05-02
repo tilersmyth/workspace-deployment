@@ -5,7 +5,8 @@
   ],
   "name": "workspace-deployment",
   "scripts": {
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "version": "lerna version --conventional-commits --yes"
   },
   "devDependencies": {
     "commitizen": "^4.0.5",
