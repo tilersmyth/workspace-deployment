@@ -3,5 +3,17 @@
   "workspaces": [
     "packages/*"
   ],
-  "name": "workspace-deployment"
+  "name": "workspace-deployment",
+  "scripts": {
+    "test": "lerna run test"
+  },
+  "devDependencies": {
+    "commitizen": "^4.0.5",
+    "lerna": "^3.20.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
