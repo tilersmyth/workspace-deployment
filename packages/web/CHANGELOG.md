@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/tilersmyth/workspace-deployment/compare/web@0.1.1...web@0.2.0) (2020-05-03)
+
+
+### Features
+
+* lerna testing - web update ([174c4fd](https://github.com/tilersmyth/workspace-deployment/commit/174c4fd4057c45257746071b0e8fea909a91d4d0))
+
+
+
+
+
 ## [0.1.1](https://github.com/tilersmyth/workspace-deployment/compare/web@0.1.0...web@0.1.1) (2020-05-03)
 
 **Note:** Version bump only for package web
