@@ -18,6 +18,8 @@ async function bootstrap() {
     credentials: true,
   });
 
+  console.log('RANDO UPDATE');
+
   // Needed for entity validation
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
