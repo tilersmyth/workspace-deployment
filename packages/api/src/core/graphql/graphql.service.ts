@@ -19,7 +19,7 @@ export class GraphqlService implements GqlOptionsFactory {
         origin: this.config.get<string>('FRONTEND'),
         credentials: true,
       },
-      playground: env === 'development',
+      playground: true, // CHANGE THIS BACK
       tracing: env === 'development',
       debug: env === 'development',
       autoSchemaFile: 'schema.gql',

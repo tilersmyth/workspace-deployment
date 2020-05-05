@@ -1,17 +1,22 @@
 import { Logger } from '@nestjs/common';
-import * as expressSession from 'express-session';
-import * as Redis from 'ioredis';
-import * as Store from 'connect-redis';
+import { ConfigService } from '@nestjs/config';
+import expressSession from 'express-session';
+import Redis from 'ioredis';
+import Store from 'connect-redis';
 
 import { EXPRESS_SESSION, EXPRESS_SESSION_NAME } from './session.constants';
 import { SessionService } from './session.service';
 
 export const sessionProvider = {
   provide: EXPRESS_SESSION,
-  useFactory: async (sessionService: SessionService) => {
+  useFactory: async (sessionService: SessionService, config: ConfigService) => {
     const logger = new Logger(EXPRESS_SESSION_NAME);
     try {
-      const redis = new Redis();
+      const redis = new Redis(
+        config.get<number>('REDIS_PORT'),
+        config.get<string>('REDIS_HOST'),
+      );
+
       const RedisStore = Store(expressSession);
       const store = new RedisStore({
         client: redis as any,
@@ -27,5 +32,5 @@ export const sessionProvider = {
       throw err;
     }
   },
-  inject: [SessionService],
+  inject: [SessionService, ConfigService],
 };

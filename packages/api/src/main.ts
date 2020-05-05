@@ -21,6 +21,6 @@ async function bootstrap() {
   // Needed for entity validation
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
-  await app.listen(config.get<number>('PORT'), config.get<string>('BASE_HOST'));
+  await app.listen(config.get<number>('PORT'));
 }
 bootstrap();

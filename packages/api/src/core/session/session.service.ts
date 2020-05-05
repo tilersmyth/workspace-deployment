@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import * as expressSession from 'express-session';
-import * as Store from 'connect-redis';
+import expressSession from 'express-session';
+import Store from 'connect-redis';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
