@@ -18,6 +18,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           rm: true
-          source: "./packages/api/docker-compose.yml, ./packages/api/nginx, ./packages/api/pg-scripts"
+          source: "./deploy"
           target: "app"
-          strip_components: 3
+          strip_components: 1
