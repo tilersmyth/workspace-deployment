@@ -1,18 +1,28 @@
 version: '3'
 services:
-  app:
-    container_name: deploy-app
-    restart: always
+  api:
+    container_name: api
+    image: tilersmyth/deploy-app
     build: .
-    ports:
-      - '80:${PORT}'
+    restart: always
     env_file:
       - production.env
     networks:
       - webnet
     depends_on:
-      - 'db'
-      - 'redis'
+      - db
+      - redis
+  nginx:
+    restart: always
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - '80:80'
+    networks:
+      - webnet
+    depends_on:
+      - api
   db:
     image: 'postgres:11.5-alpine'
     networks:
@@ -21,6 +31,7 @@ services:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_MULTIPLE_DATABASES=deploy,deploy_test
+    restart: unless-stopped
     ports:
       - '5432:5432'
     volumes:
