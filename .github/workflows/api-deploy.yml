@@ -17,5 +17,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "packages/api/Dockerfile"
-          target: ""
+          source: "./packages/api/Dockerfile"
+          target: "/test"
