@@ -17,6 +17,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "./packages/api/Dockerfile"
+          source: "./packages/api/production.env"
           target: "root"
           strip_components: 2
