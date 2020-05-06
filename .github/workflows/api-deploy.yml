@@ -11,12 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd packages/api
-      - name: Update core files
+      - name: update core files
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "./packages/api/production.env"
-          target: "/root"
-          strip_components: 3
+          source: "./packages/api/Dockerfile"
+          target: "root"
+          strip_components: 2
