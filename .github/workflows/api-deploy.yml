@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run Jest
-        uses: stefanoeb/jest-action@1.0.2
-      - run: |
-          cd packages/api
-          npm run test
+      - run: cd packages/api
+      - run: yarn install
+      - run: yarn test
