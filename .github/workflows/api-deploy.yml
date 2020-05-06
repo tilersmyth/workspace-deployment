@@ -19,5 +19,5 @@ jobs:
           key: ${{ secrets.KEY }}
           rm: true
           source: "./packages/api/docker-compose.yml"
-          target: "."
+          target: "test"
           strip_components: 3
