@@ -11,12 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd packages/api
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
+      # - run: yarn install --frozen-lockfile
+      # - run: yarn test
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          script: whoami
+          script:
+            - run: mkdir test
