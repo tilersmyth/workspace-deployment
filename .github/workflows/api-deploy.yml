@@ -17,7 +17,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "./packages/api/Dockerfile,./packages/api/docker-compose.yml,./packages/api/pg-scripts,./packages/api/production.env,./packages/api/nginx"
+          source: "./packages/api/production.env"
           target: "."
           strip_components: 3
-          overwrite: true
