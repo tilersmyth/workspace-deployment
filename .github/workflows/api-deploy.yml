@@ -20,4 +20,4 @@ jobs:
           rm: true
           source: "./packages/api/deploy"
           target: "app"
-          strip_components: 3
+          strip_components: 4
