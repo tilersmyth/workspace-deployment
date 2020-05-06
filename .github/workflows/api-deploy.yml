@@ -18,6 +18,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           source: "./packages/api/Dockerfile"
-          target: "root"
-          strip_components: 2
+          target: "."
+          strip_components: 3
           overwrite: true
