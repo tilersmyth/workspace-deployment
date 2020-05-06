@@ -17,7 +17,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
+          rm: true
           source: "./packages/api/docker-compose.yml"
           target: "."
           strip_components: 3
-          rm: true
