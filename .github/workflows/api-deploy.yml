@@ -11,10 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd packages/api
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          script: mkdir test
+    - name: update core files
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        source: "Dockerfile"
+        target: ""
