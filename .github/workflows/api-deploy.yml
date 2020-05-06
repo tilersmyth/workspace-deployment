@@ -20,4 +20,4 @@ jobs:
           source: "./packages/api/Dockerfile,./packages/api/docker-compose.yml,./packages/api/pg-scripts,./packages/api/production.env,./packages/api/nginx"
           target: "."
           strip_components: 3
-          rm: true
+          overwrite: true
