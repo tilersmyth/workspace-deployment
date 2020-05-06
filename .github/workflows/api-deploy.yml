@@ -20,3 +20,4 @@ jobs:
           source: "./packages/api/docker-compose.yml"
           target: "."
           strip_components: 3
+          rm: true

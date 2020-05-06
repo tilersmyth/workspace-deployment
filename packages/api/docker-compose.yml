@@ -1,7 +1,7 @@
 version: '3'
 services:
   api:
-    container_name: apiXX
+    container_name: api
     image: tilersmyth/deploy-app
     build: .
     restart: always
