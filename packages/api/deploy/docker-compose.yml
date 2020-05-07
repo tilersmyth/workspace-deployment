@@ -6,7 +6,7 @@ services:
     build: ../.
     restart: always
     env_file:
-      - ../production.env
+      - ./production.env
     networks:
       - webnet
     depends_on:
