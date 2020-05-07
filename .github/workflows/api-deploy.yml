@@ -22,8 +22,10 @@ jobs:
           password: ${{ secrets.DOCKER_PW }}
 
       - name: Push image to DockerHub
-        run: cd deploy  
-        run: docker-compose build && docker-compose push
+        run: |
+          cd deploy  
+          docker-compose build
+          docker-compose push
 
       - name: Update core files
         uses: appleboy/scp-action@master
