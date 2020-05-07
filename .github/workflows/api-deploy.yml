@@ -23,7 +23,7 @@ jobs:
 
       - name: Push image to DockerHub
         run: |
-          cd deploy  
+          cd packages/api/deploy  
           docker-compose build
           docker-compose push
 
