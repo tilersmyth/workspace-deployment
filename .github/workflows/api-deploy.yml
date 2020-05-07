@@ -23,9 +23,8 @@ jobs:
 
       - name: Push image to DockerHub
         run: |
-          cd ./packages/api/deploy  
-          docker-compose build
-          docker-compose push
+          cd ./packages/api  
+          docker build -t tilersmyth/deploy .
 
       - name: Update core files
         uses: appleboy/scp-action@master
