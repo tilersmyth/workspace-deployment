@@ -11,10 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run tests
+      - name: Install deps
         run: |
           cd packages/api 
-          yarn run test
+          yarn install --frozen-lockfile
+      - name: Run tests
+        run: yarn test
 
   docker:
     name: Publish - Docker Hub
