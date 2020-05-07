@@ -15,7 +15,11 @@ jobs:
       PW: ${{ secrets.DOCKER_PW }}
     steps:
       - uses: actions/checkout@v2
-      - name: ORIGINAL VERSION
-        run: echo $GITHUB_REF
-      - name: REGEXED
-        run: echo ${GITHUB_REF#*@}
+      - name: Login to Docker Hub
+        run: docker login -u $ID -p $PW
+      - name: Build Docker image
+        run: |
+          cd packages/api 
+          docker build -t $REPO:${GITHUB_REF#*@} .
+      - name: Publish Docker image
+        run: docker push $REPO:${GITHUB_REF#*@}
