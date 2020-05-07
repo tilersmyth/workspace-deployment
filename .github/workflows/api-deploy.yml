@@ -15,6 +15,12 @@ jobs:
       - name: Run tests
         run: cd packages/api
 
+      - name: Push to DockerHub
+        uses: azure/docker-login@v1
+        with:
+          username: ${{ secrets.DOCKER_ID }}
+          password: ${{ secrets.DOCKER_PW }}
+
       - name: Update core files
         uses: appleboy/scp-action@master
         with:
