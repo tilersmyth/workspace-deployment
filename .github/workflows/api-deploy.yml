@@ -13,7 +13,7 @@ jobs:
       REPO: ${{ secrets.DOCKER_REPO }}
       ID: ${{ secrets.DOCKER_ID }}
       PW: ${{ secrets.DOCKER_PW }}
-      VERSION: ${GITHUB_REF##*/}
+      VERSION: ${{ GITHUB_REF##*/ }}
     steps:
       - uses: actions/checkout@v2
       - name: ORIGINAL VERSION
