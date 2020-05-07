@@ -27,7 +27,4 @@ jobs:
           strip_components: 4
 
       - name: Deploy
-        run: |
-          cd app
-          docker-compose pull
-          docker-compose up -d
+        run: ls
