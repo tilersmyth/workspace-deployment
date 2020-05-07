@@ -20,6 +20,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_ID }}
           password: ${{ secrets.DOCKER_PW }}
+        run: cd deploy && docker-compose build && docker-compose push
 
       - name: Update core files
         uses: appleboy/scp-action@master

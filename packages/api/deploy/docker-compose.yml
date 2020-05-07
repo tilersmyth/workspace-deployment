@@ -3,7 +3,7 @@ services:
   api:
     container_name: api
     image: tilersmyth/deploy-app
-    build: .
+    build: ../.
     restart: always
     env_file:
       - ../production.env
