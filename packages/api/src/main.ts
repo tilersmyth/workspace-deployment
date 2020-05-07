@@ -13,7 +13,7 @@ async function bootstrap() {
 
   const config = app.get(ConfigService);
 
-  console.log('sddkh');
+  console.log('sddkhß');
 
   app.enableCors({
     origin: config.get<string>('FRONTEND'),
