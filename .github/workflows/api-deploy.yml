@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPO: ${{ secrets.DOCKER_REPO }}
+      ID: ${{ secrets.DOCKER_ID }}
+      PW: ${{ secrets.DOCKER_PW }}
+      VERSION: ${GITHUB_REF##*/}
     steps:
       - uses: actions/checkout@v2
-      - name: Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_ID }} -p ${{ secrets.DOCKER_PW }}
-      - name: Build Docker image
-        run: |
-          cd packages/api 
-          docker build -t $REPO:${GITHUB_REF##*/} .
-      - name: Publish Docker image
-        run: docker push $REPO:${GITHUB_REF##*/}
+      - name: ORIGINAL VERSION
+        run: echo $GITHUB_REF
+      - name: REGEXED
+        run: echo $VERSION
