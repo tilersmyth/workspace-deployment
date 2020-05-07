@@ -13,10 +13,9 @@ jobs:
       REPO: ${{ secrets.DOCKER_REPO }}
       ID: ${{ secrets.DOCKER_ID }}
       PW: ${{ secrets.DOCKER_PW }}
-      VERSION: ${{ GITHUB_REF##*/ }}
     steps:
       - uses: actions/checkout@v2
       - name: ORIGINAL VERSION
         run: echo $GITHUB_REF
       - name: REGEXED
-        run: echo $VERSION
+        run: echo ${GITHUB_REF##*/}
