@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Login to Docker Hub
         run: |
-        cd packages/api 
-        yarn run test
+          cd packages/api 
+          yarn run test
 
   docker:
     name: Publish - Docker Hub
