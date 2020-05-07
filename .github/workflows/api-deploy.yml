@@ -27,4 +27,12 @@ jobs:
           strip_components: 4
 
       - name: Deploy
-        run: ls
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd app
+            docker-compose pull
+            docker-compose up -d
