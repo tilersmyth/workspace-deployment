@@ -14,7 +14,6 @@ WORKDIR /usr/app
 COPY ./package.json yarn.* ./
 RUN yarn install --production
 COPY --from=builder /usr/app/dist ./dist
-COPY production.env .
 
 EXPOSE 4000
 CMD ["npm", "run", "start:prod"]
