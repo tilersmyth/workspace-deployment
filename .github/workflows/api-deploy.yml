@@ -9,9 +9,13 @@ jobs:
   api:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: cd packages/api
-      - name: update core files
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run tests
+        run: cd packages/api
+
+      - name: Update core files
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -21,3 +25,9 @@ jobs:
           source: "./packages/api/deploy"
           target: "app"
           strip_components: 4
+
+      - name: Deploy
+        run: |
+          cd app
+          docker-compose pull
+          docker-compose up -d
