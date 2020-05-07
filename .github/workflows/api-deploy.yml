@@ -18,6 +18,6 @@ jobs:
       - name: Build Docker image
         run: |
           cd packages/api 
-          docker build -t $REPO:latest .
+          docker build -t tilersmyth/$REPO:latest .
       - name: Publish Docker image
         run: docker push tilersmyth/$REPO:latest
