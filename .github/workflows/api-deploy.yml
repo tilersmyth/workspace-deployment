@@ -67,5 +67,6 @@ jobs:
           key: $KEY
           ENVS: TAG
           script: |
-            chmod +x ./app/deploy.sh
-            ./app/deploy.sh ${TAG#*@}
+            cd app
+            chmod +x ./deploy.sh
+            ./deploy.sh ${TAG#*@}
