@@ -73,4 +73,4 @@ jobs:
           script: |
             cd app
             chmod +x ./deploy.sh
-            sh ./deploy.sh ${TAG#*@}
+            nohup ./deploy.sh ${TAG#*@}
