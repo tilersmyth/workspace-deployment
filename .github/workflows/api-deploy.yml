@@ -65,5 +65,7 @@ jobs:
           username: $USERNAME
           key: $KEY
           script: |
+            ls
             cd app
             ls
+            TAG=${GITHUB_REF#*@} docker-compose up -d
