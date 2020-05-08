@@ -58,12 +58,12 @@ jobs:
           source: "./packages/api/deploy"
           target: "app"
           strip_components: 4
-      # - name: Pull Docker image
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: $HOST
-      #     username: $USERNAME
-      #     key: $KEY
-      #     script: |
-      #       cd app
-      #       TAG=${GITHUB_REF#*@} docker-compose up
+      - name: Pull Docker image
+        uses: appleboy/ssh-action@master
+        with:
+          host: $HOST
+          username: $USERNAME
+          key: $KEY
+          script: |
+            cd app
+            TAG=${GITHUB_REF#*@} docker-compose up -d
