@@ -6,22 +6,22 @@ on:
       - "api*"
 
 jobs:
-  # test:
-  #   name: Test
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Install deps
-  #       run: |
-  #         cd packages/api
-  #         yarn install --frozen-lockfile
-  #     - name: Run tests
-  #       run: yarn test
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install deps
+        run: |
+          cd packages/api
+          yarn install --frozen-lockfile
+      - name: Run tests
+        run: yarn test
 
   docker:
     name: Publish - Docker Hub
     runs-on: ubuntu-latest
-    # needs: [test]
+    needs: [test]
     env:
       REPO: ${{ secrets.DOCKER_REPO }}
       ID: ${{ secrets.DOCKER_ID }}
@@ -40,8 +40,7 @@ jobs:
   deploy:
     name: Redeploy - DigitalOcean
     runs-on: ubuntu-latest
-    # needs: [test, docker]
-    needs: [docker]
+    needs: [test, docker]
     env:
       HOST: ${{ secrets.DO_HOST }}
       USERNAME: ${{ secrets.DO_USERNAME }}
@@ -51,17 +50,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # - name: Update deploy files
-      #   uses: appleboy/scp-action@master
-      #   with:
-      #     host: $HOST
-      #     username: $USERNAME
-      #     key: $KEY
-      #     port: $PORT
-      #     rm: true
-      #     source: "./packages/api/deploy"
-      #     target: "app"
-      #     strip_components: 4
+      - name: Update deploy files
+        uses: appleboy/scp-action@master
+        with:
+          host: $HOST
+          username: $USERNAME
+          key: $KEY
+          port: $PORT
+          rm: true
+          source: "./packages/api/deploy"
+          target: "app"
+          strip_components: 4
 
       - name: Docker compose up
         uses: appleboy/ssh-action@master
