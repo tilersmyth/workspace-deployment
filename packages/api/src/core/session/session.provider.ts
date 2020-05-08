@@ -22,7 +22,7 @@ export const sessionProvider = {
         client: redis as any,
       });
 
-      logger.log('SSSSSSS Initiating Session...');
+      logger.log('Initiating Session...');
 
       const options = sessionService.options(store);
 
