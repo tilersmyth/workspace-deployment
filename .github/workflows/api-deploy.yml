@@ -40,7 +40,7 @@ jobs:
   deploy:
     name: Redeploy - DigitalOcean
     runs-on: ubuntu-latest
-    needs: [test, docker]
+    # needs: [test, docker]
     env:
       HOST: ${{ secrets.DO_HOST }}
       USERNAME: ${{ secrets.DO_USERNAME }}
