@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.100](https://github.com/tilersmyth/workspace-deployment/compare/api@0.1.99...api@0.1.100) (2020-05-08)
+
+**Note:** Version bump only for package api
+
+
+
+
+
 ## [0.1.99](https://github.com/tilersmyth/workspace-deployment/compare/api@0.1.98...api@0.1.99) (2020-05-08)
 
 **Note:** Version bump only for package api
