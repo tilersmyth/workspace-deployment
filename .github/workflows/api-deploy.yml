@@ -49,16 +49,16 @@ jobs:
       TAG: ${{ github.ref }}
     steps:
       - uses: actions/checkout@v2
-      # - name: Update deploy files
-      #   uses: appleboy/scp-action@master
-      #   with:
-      #     host: $HOST
-      #     username: $USERNAME
-      #     key: $KEY
-      #     rm: true
-      #     source: "./packages/api/deploy"
-      #     target: "app"
-      #     strip_components: 4
+      - name: Update deploy files
+        uses: appleboy/scp-action@master
+        with:
+          host: $HOST
+          username: $USERNAME
+          key: $KEY
+          rm: true
+          source: "./packages/api/deploy"
+          target: "app"
+          strip_components: 4
       - name: Pull Docker image
         uses: appleboy/ssh-action@master
         with:
@@ -67,5 +67,5 @@ jobs:
           key: $KEY
           ENVS: TAG
           script: |
-            cd app
-            TAG=${TAG#*@} docker-compose up
+            chmod +x ./app/deploy.sh
+            ./app/deploy.sh ${TAG#*@}
