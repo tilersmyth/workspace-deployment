@@ -14,12 +14,12 @@ export class GraphqlService implements GqlOptionsFactory {
     const env = this.config.get<string>('NODE_ENV');
 
     return {
-      introspection: true,
+      introspection: env === 'development',
       cors: {
         origin: this.config.get<string>('FRONTEND'),
         credentials: true,
       },
-      playground: true, // CHANGE THIS BACK
+      playground: env === 'development',
       tracing: env === 'development',
       debug: env === 'development',
       autoSchemaFile: 'schema.gql',
