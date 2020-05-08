@@ -66,4 +66,4 @@ jobs:
           key: $KEY
           script: |
             cd app
-            TAG=${GITHUB_REF#*@} docker-compose up -d
+            ls
