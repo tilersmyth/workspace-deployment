@@ -67,4 +67,4 @@ jobs:
           ENVS: TAG
           script: |
             cd app
-            echo $TAG
+            echo ${TAG#*@}
