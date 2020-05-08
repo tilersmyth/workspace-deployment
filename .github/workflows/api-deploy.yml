@@ -46,7 +46,7 @@ jobs:
       HOST: ${{ secrets.DO_HOST }}
       USERNAME: ${{ secrets.DO_USERNAME }}
       KEY: ${{ secrets.DO_KEY }}
-      TAG: ${GITHUB_REF#*@}
+      TAG: ${{ GITHUB_REF#*@ }}
     steps:
       - uses: actions/checkout@v2
       # - name: Update deploy files
