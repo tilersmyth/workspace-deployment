@@ -6,6 +6,7 @@ import { Me } from './user.decorator';
 import { UserRegisterInput } from './inputs/register.input';
 import { UserLoginInput } from './inputs/login.input';
 import { ExpressContext } from '../../types';
+import { LoginDto } from './dto/login.dto';
 
 @Resolver('User')
 export class UserResolver {
@@ -26,7 +27,7 @@ export class UserResolver {
     return this.userService.register(input);
   }
 
-  @Mutation(() => UserEntity)
+  @Mutation(() => LoginDto)
   async login(
     @Args('input') input: UserLoginInput,
     @Context() ctx: ExpressContext,

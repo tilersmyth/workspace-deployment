@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-native",
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "baseUrl": "..",
+    // autocomplete paths
+    "paths": {
+      "*": ["src/*", "assets/*"],
+      "assets/*": ["assets/*"]
+    },
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "./node_modules", "./node_modules/*"]
+}

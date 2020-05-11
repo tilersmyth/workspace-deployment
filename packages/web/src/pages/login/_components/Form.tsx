@@ -34,7 +34,7 @@ const LoginForm: React.FunctionComponent = () => {
             async update(cache, { data }) {
               cache.writeQuery<MeQuery>({
                 query: MeDocument,
-                data: { me: data.login },
+                data: { me: data.login.user },
               });
 
               Router.push("/me");

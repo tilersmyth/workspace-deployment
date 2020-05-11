@@ -9,6 +9,11 @@ type UserEntity {
   email: String!
 }
 
+type LoginDto {
+  sessionId: String!
+  user: UserEntity!
+}
+
 type Query {
   me: UserEntity
   allUsers: [UserEntity!]!
@@ -16,7 +21,7 @@ type Query {
 
 type Mutation {
   register(input: UserRegisterInput!): UserEntity!
-  login(input: UserLoginInput!): UserEntity!
+  login(input: UserLoginInput!): LoginDto!
   logout: Boolean!
 }
 

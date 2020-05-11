@@ -1,8 +1,10 @@
 {
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "name": "workspace-deployment",
   "scripts": {
     "test": "lerna run test",

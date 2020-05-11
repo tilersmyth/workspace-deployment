@@ -10,6 +10,7 @@ import { UserEntity } from './user.entity';
 import { UserRegisterInput } from './inputs/register.input';
 import { UserLoginInput } from './inputs/login.input';
 import { ExpressRequest, ExpressContext } from '../../types';
+import { LoginDto } from './dto/login.dto';
 
 @Injectable()
 export class UserService {
@@ -88,7 +89,7 @@ export class UserService {
   public async login(
     input: UserLoginInput,
     req: ExpressRequest,
-  ): Promise<UserEntity> {
+  ): Promise<LoginDto> {
     const user = await this.findOne({ where: { email: input.email } });
 
     if (!user || !bcryptjs.compareSync(input.password, user.password)) {
@@ -99,7 +100,7 @@ export class UserService {
 
     req.session.userId = user.id;
 
-    return user;
+    return { sessionId: req.sessionID, user };
   }
 
   public async logout(ctx: ExpressContext): Promise<boolean> {

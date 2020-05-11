@@ -8,6 +8,7 @@ mutation Register($input: UserRegisterInput!) {
 
 mutation Login($input: UserLoginInput!) {
   login(input: $input) {
+    sessionId
     user {
       first_name
       last_name
