@@ -1,6 +1,6 @@
 {
   "name": "@workspace-deployment/web",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -10,13 +10,13 @@
     "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@workspace-deployment/common": "0.0.1",
     "@apollo/client": "^3.0.0-beta.44",
     "@apollo/link-context": "^2.0.0-beta.3",
     "@apollo/link-error": "^2.0.0-beta.3",
     "@apollo/react-components": "^4.0.0-beta.1",
     "@apollo/react-hoc": "^4.0.0-beta.1",
     "@apollo/react-ssr": "^4.0.0-beta.1",
+    "@workspace-deployment/common": "^0.0.2",
     "apollo-link-schema": "^1.2.5",
     "cookie": "^0.4.1",
     "formik": "^2.1.4",

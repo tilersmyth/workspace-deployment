@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2020-05-11)
+
+
+### Bug Fixes
+
+* secure redis image ([a814890](https://github.com/tilersmyth/workspace-deployment/commit/a814890a1ac62dbba3c5564a35d873b7e19c4a45))
+
+
+### Features
+
+* added app package ([90f5428](https://github.com/tilersmyth/workspace-deployment/commit/90f54288173ef005f75fbf67f6bc846d79aa6490))
+* github actions testing - api only update ([4bcebd4](https://github.com/tilersmyth/workspace-deployment/commit/4bcebd4ae4a9c7689c42312ddbeec620907aade5))
+
+
+
+
+
 ## [0.1.113](https://github.com/tilersmyth/workspace-deployment/compare/api@0.1.112...api@0.1.113) (2020-05-09)
 
 **Note:** Version bump only for package api
