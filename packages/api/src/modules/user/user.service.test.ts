@@ -90,7 +90,7 @@ describe('UserService', () => {
       userRepositoryMock.findOneOrFail.mockReturnValue(user);
       try {
         const result = await userService.login(input, req);
-        expect(result).toBe(user);
+        expect(result).toEqual({ sessionId: undefined, user });
       } catch (error) {
         throw error;
       }
