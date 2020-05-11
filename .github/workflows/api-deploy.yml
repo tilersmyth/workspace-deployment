@@ -3,7 +3,7 @@ name: api-deploy
 on:
   push:
     tags:
-      - "api*"
+      - "@workspace-deployment/api*"
 
 jobs:
   test:

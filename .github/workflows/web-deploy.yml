@@ -3,7 +3,7 @@ name: web-deploy
 on:
   push:
     tags:
-      - "web*"
+      - "@workspace-deployment/web*"
 
 jobs:
   api:
