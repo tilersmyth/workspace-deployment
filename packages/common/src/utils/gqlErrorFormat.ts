@@ -6,7 +6,7 @@ interface ValidationError extends Error {
 
 type Validation = { [key: string]: string } | null;
 
-export const gqlValidationError = (errors: ValidationError): Validation => {
+export default (errors: ValidationError): Validation => {
   const gqlErrors = errors.graphQLErrors[0];
 
   if (!gqlErrors || !gqlErrors.extensions) {

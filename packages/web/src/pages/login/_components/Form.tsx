@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Formik, Form } from "formik";
 import { useMutation } from "@apollo/client";
 import Router from "next/router";
+import { LoginValidation, gqlErrorFormat } from "@workspace-deployment/common";
 
 import {
   LoginMutation,
@@ -12,7 +13,6 @@ import {
   MeDocument,
 } from "../../../apollo/generated";
 import TextField from "../../../components/TextField";
-import { gqlValidationError } from "../../../apollo/utils/gqlValidation";
 
 const LoginForm: React.FunctionComponent = () => {
   const [formError, setFormError] = useState<string | null>(null);
@@ -26,6 +26,7 @@ const LoginForm: React.FunctionComponent = () => {
         email: "",
         password: "",
       }}
+      validationSchema={LoginValidation}
       onSubmit={async (values) => {
         try {
           setFormError(null);
@@ -41,7 +42,7 @@ const LoginForm: React.FunctionComponent = () => {
             },
           });
         } catch (err) {
-          const error = gqlValidationError(err);
+          const error = gqlErrorFormat(err);
 
           if (error) {
             setFormError(error.form);

@@ -2,6 +2,10 @@ import React from "react";
 import { Formik, Field } from "formik";
 import { useMutation } from "@apollo/client";
 import { Button, View } from "react-native";
+import {
+  RegisterValidation,
+  gqlErrorFormat,
+} from "@workspace-deployment/common";
 
 import {
   RegisterMutation,
@@ -28,7 +32,8 @@ const RegisterForm: React.FunctionComponent<Props> = ({ onSuccess }) => {
           email: "",
           password: "",
         }}
-        onSubmit={async (values) => {
+        validationSchema={RegisterValidation}
+        onSubmit={async (values, { setErrors }) => {
           try {
             await register({
               variables: { input: values },
@@ -36,7 +41,11 @@ const RegisterForm: React.FunctionComponent<Props> = ({ onSuccess }) => {
 
             onSuccess();
           } catch (err) {
-            console.log(err);
+            const error = gqlErrorFormat(err);
+
+            if (error) {
+              setErrors(error);
+            }
           }
         }}
       >

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Formik, Field } from "formik";
 import { useMutation } from "@apollo/client";
 import { Button, Text, View, AsyncStorage } from "react-native";
+import { LoginValidation, gqlErrorFormat } from "@workspace-deployment/common";
 
 import {
   LoginMutation,
@@ -18,7 +19,7 @@ interface Props {
 }
 
 const LoginForm: React.FunctionComponent<Props> = ({ onSuccess }) => {
-  const [formError] = useState<string | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
   const [login] = useMutation<LoginMutation, LoginMutationVariables>(
     LoginDocument
   );
@@ -30,7 +31,9 @@ const LoginForm: React.FunctionComponent<Props> = ({ onSuccess }) => {
           email: "",
           password: "",
         }}
+        validationSchema={LoginValidation}
         onSubmit={async (values) => {
+          setFormError(null);
           try {
             await login({
               variables: { input: values },
@@ -46,7 +49,11 @@ const LoginForm: React.FunctionComponent<Props> = ({ onSuccess }) => {
               },
             });
           } catch (err) {
-            console.log(err);
+            const error = gqlErrorFormat(err);
+
+            if (error) {
+              setFormError(error.form);
+            }
           }
         }}
       >

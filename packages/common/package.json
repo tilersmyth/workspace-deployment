@@ -1,0 +1,21 @@
+{
+  "name": "@workspace-deployment/common",
+  "version": "0.0.1",
+  "description": "shared workspace package",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "@types/yup": "^0.28.3",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "graphql": "^15.0.0",
+    "yup": "^0.28.5"
+  }
+}

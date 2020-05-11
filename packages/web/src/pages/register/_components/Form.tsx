@@ -2,13 +2,16 @@ import React from "react";
 import { Form, Formik } from "formik";
 import { useMutation } from "@apollo/client";
 import Router from "next/router";
+import {
+  RegisterValidation,
+  gqlErrorFormat,
+} from "@workspace-deployment/common";
 
 import {
   RegisterMutation,
   RegisterMutationVariables,
   RegisterDocument,
 } from "../../../apollo/generated";
-import { gqlValidationError } from "../../../apollo/utils/gqlValidation";
 import TextField from "../../../components/TextField";
 
 const RegisterForm: React.FunctionComponent = () => {
@@ -24,12 +27,13 @@ const RegisterForm: React.FunctionComponent = () => {
         email: "",
         password: "",
       }}
+      validationSchema={RegisterValidation}
       onSubmit={async (values, { setErrors }) => {
         try {
           await register({ variables: { input: values } });
           Router.push("/login");
         } catch (err) {
-          const error = gqlValidationError(err);
+          const error = gqlErrorFormat(err);
 
           if (error) {
             setErrors(error);
