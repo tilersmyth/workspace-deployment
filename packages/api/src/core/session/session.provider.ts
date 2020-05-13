@@ -12,10 +12,14 @@ export const sessionProvider = {
   useFactory: async (sessionService: SessionService, config: ConfigService) => {
     const logger = new Logger(EXPRESS_SESSION_NAME);
     try {
-      const redis = new Redis(
-        config.get<number>('REDIS_PORT'),
-        config.get<string>('REDIS_HOST'),
-      );
+      const env = config.get<string>('NODE_ENV');
+
+      const redis = new Redis({
+        port: config.get<number>('REDIS_PORT'),
+        host: config.get<string>('REDIS_HOST'),
+        password:
+          env === 'production' ? config.get<string>('REDIS_SECRET') : undefined,
+      });
 
       const RedisStore = Store(expressSession);
       const store = new RedisStore({
